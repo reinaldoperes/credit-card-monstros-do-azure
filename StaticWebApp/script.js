@@ -278,3 +278,35 @@ window.onload = function () {
       document.querySelector('.creditcard').classList.add('flipped');
   });
   };
+
+function send() {
+  const name = document.getElementById('name').value;
+  const cardnumber = document.getElementById('cardnumber').value;
+  const expirationdate = document.getElementById('expirationdate').value;
+  const securitycode = document.getElementById('securitycode').value;
+
+  const data = {
+    name: name,
+    cardnumber: cardnumber,
+    expirationdate: expirationdate,
+    securitycode: securitycode
+  };
+
+  console.log(data);
+
+  fetch('http://localhost:7060/api/transaction-producer', {
+  method: 'POST',
+  mode: 'no-cors',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
