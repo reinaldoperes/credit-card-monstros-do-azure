@@ -12,10 +12,12 @@ namespace MyAPI.Functions
 {
     public class TransactionConsumer
     {
-        [FunctionName("TransactionConsumer")]
-        public void Run([QueueTrigger("transaction-queue", Connection = "")]string myQueueItem, ILogger log)
+		[FunctionName("TransactionConsumer")]
+        public void Run([QueueTrigger("transaction-queue",
+            Connection = "QueueConnectionString")] string myQueueItem, ILogger log)
         {
-            log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+            log.LogWarning($"New item in queue!!!!!");
+            log.LogWarning($"C# Holy monster Queue trigger function processed: {myQueueItem}");
         }
     }
 }

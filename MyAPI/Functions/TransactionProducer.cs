@@ -30,24 +30,10 @@ namespace MyAPI.Functions
 
             var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var data = JsonConvert.DeserializeObject<TransactionRequest>(requestBody);
-            var name = data?.Name;
-			var cardNumber = data?.CardNumber;
-			var expirationDate = data?.ExpirationDate;
-			var securityCode = data?.SecurityCode;
 
-            var responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+            await this.queueService.Enqueue("transaction-queue", data);
 
-			await this.queueService.Enqueue("transaction-queue", new
-			{
-				Name = name,
-				CardNumber = cardNumber,
-				ExpirationDate = expirationDate,
-				SecurityCode = securityCode
-			});
-
-			return new OkObjectResult(responseMessage);
+			return new OkObjectResult("Oh yeah");
         }
     }
 }

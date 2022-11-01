@@ -1,5 +1,4 @@
 ﻿using Azure.Storage.Queues;
-using Microsoft.Extensions.Options;
 using MyAPI.Services.Interfaces;
 using System;
 using System.Threading.Tasks;
@@ -35,7 +34,10 @@ public class AzureQueueService : IQueueService
 	private QueueClient QueueReference(string queue)
 	{
 		// Connect to the storage account's blob endpoint 
-		var serviceClient = new QueueServiceClient(this.config.AccessKey);
+		var serviceClient = new QueueServiceClient(this.config.AccessKey, new QueueClientOptions
+		{
+			MessageEncoding = QueueMessageEncoding.Base64
+		});
 
 		// Create the blob storage container
 		var queueClient = serviceClient.GetQueueClient(queue);
@@ -56,7 +58,7 @@ public class AzureQueueService : IQueueService
 		var client = QueueReference(queue);
 
 		// Serialize the data object to be added in the queue
-		var serialized = JsonSerializer.Serialize(data);
+		var serialized = JsonSerializer.Serialize(data).ToString();
 
 		// Send the message to the queue
 		await client.SendMessageAsync(serialized);
