@@ -16,6 +16,7 @@ namespace MyAPI.Functions
         public void Run([QueueTrigger("transaction-queue",
             Connection = "QueueConnectionString")] string myQueueItem, ILogger log)
         {
+            log.LogWarning($"***************************** Consumer *****************************");
             log.LogWarning($"New item in queue!!!!!");
             log.LogWarning($"C# Holy monster Queue trigger function processed: {myQueueItem}");
         }
