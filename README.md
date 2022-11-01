@@ -11,3 +11,4 @@ Just a simple credit card interface from CodePen, credits to [Adam Quinlan](http
 C# project with a simple Azure Function App queue trigger.
 
 ## Azure Queue
+![This is an image](images/staticWebAppConfig.png)
