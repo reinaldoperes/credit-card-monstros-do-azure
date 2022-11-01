@@ -7,10 +7,12 @@ A project of a simple credit card payment interface in a Azure Static Web App po
 ## Static Web App
 Just a simple credit card interface from CodePen, credits to [Adam Quinlan](https://codepen.io/quinlo/).
 
+An example for how to configure your static Web App with your repository
+
+![Example](images/staticWebAppConfig.png)
+
 ## Azure Function
 C# project with a simple Azure Function App queue trigger.
 
 ## Azure Queue
-An example for how to configure your static Web App with your repository
-
-![Example](images/staticWebAppConfig.png)
+Will be needed to create a queue in a Storage Account in Azure. In this example the queue is called "transaction-queue"
