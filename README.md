@@ -1,3 +1,7 @@
+# Monstros Do Azure
+An amazing Azure course with an amazing instructor who delves into every detail of this amazing Cloud platform from Azure. Highly recommended!
+[Monstros Do Azure](https://pay.hotmart.com/N72590781T?bid=1667435788338&sck=HOTMART_PRODUCT_PAGE&off=6335ve55&hideTrial=1&utm_source=LinkedIn%20&utm_medium=Social&checkoutMode=0)
+
 # credit-card-monstros-do-azure
 
 A project of a simple credit card payment interface in a Azure Static Web App posting a transaction in a Azure Queue. To consume the queue was used Azure Function App with queue trigger.
